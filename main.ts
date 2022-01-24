@@ -32,7 +32,7 @@ let mySprite = sprites.create(img`
     ........eeeefffffee.............
     ................................
     `, SpriteKind.Player)
-scene.setBackgroundColor(0)
+scene.setBackgroundColor(13)
 // asks what is your name
 let input2 = game.askForString("What is your name?")
 game.splash("Hello " + input2 + "!")
