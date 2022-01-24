@@ -3,7 +3,7 @@ function doSomething () {
     if (input1 == "arcade" || input1 == "Leo") {
         // when the user puts arcade its login successful
         game.splash("login successful")
-        scene.setBackgroundColor(5)
+        scene.setBackgroundColor(1)
     } else {
         // if user doesn't put arcade its login failed
         game.splash("login failed")
