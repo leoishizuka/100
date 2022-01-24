@@ -1,3 +1,16 @@
+function doSomething () {
+    // input 1 and arcade equals together
+    if (input1 == "arcade" || input1 == "Leo") {
+        // when the user puts arcade its login successful
+        game.splash("login successful")
+        scene.setBackgroundColor(5)
+    } else {
+        // if user doesn't put arcade its login failed
+        game.splash("login failed")
+        scene.setBackgroundColor(0)
+    }
+}
+let input1 = ""
 let mySprite = sprites.create(img`
     ...........222222ee.............
     .........2233333bbeee...........
@@ -37,14 +50,5 @@ scene.setBackgroundColor(13)
 let input2 = game.askForString("What is your name?")
 game.splash("Hello " + input2 + "!")
 // asks for what your password is
-let input1 = game.askForString("What is your password?")
-// input 1 and arcade equals together
-if (input1 == "arcade" || input1 == "Leo") {
-    // when the user puts arcade its login successful
-    game.splash("login successful")
-    scene.setBackgroundColor(5)
-} else {
-    // if user doesn't put arcade its login failed
-    game.splash("login failed")
-    scene.setBackgroundColor(0)
-}
+input1 = game.askForString("What is your password?")
+doSomething()
