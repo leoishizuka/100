@@ -1,54 +1,30 @@
-function doSomething () {
-    // input 1 and arcade equals together
-    if (input1 == "arcade" || input1 == "Leo") {
-        // when the user puts arcade its login successful
-        game.splash("login successful")
-        scene.setBackgroundColor(1)
-    } else {
-        // if user doesn't put arcade its login failed
-        game.splash("login failed")
-        scene.setBackgroundColor(0)
-    }
+function succes (sprite: string) {
+    scene.setBackgroundColor(1)
+    return "Login succesfull " + "Hi, " + name
 }
-let input1 = ""
-let mySprite = sprites.create(img`
-    ...........222222ee.............
-    .........2233333bbeee...........
-    .......2233d1111333bee..........
-    ......23ddd111dd1d33eee.........
-    .....23d1333d1d33d13bee.........
-    ....23d133333d1d33313eee........
-    ...2311333333ddd3333dbeee.......
-    ..2313333333333ddd33d3e44e......
-    ..21d3333333333ddd333db44ee.....
-    .2313333333333dd33333db444ee....
-    .2dd3333333333d333333d3b444e....
-    2311d333333333d333333ddbb444e...
-    2d131d33333333d333333d1b6644e...
-    2d33dd33333333d333333d1b44444e..
-    21333d3333333d3333333d1644664ee.
-    21333d333333d33333333d16b64464be
-    21333dddd33dd33333333d1646446b6e
-    2133333dd11dd33333333d1644b6446e
-    e133333d1d31d33333333d1b4446446e
-    e1333331d3331333333331d6bb44b6e.
-    e1333331dd331b3333333136bb6bb6e.
-    e13333331dd1db33333331b6b66bbe..
-    edd33333311db3333333dd6bb6bbe...
-    e3d3333333d333333333136beebbe...
-    .edd3333333d3333333ddbfeebbe....
-    .e3dd33333dd3333333d3efeeee.....
-    ..e3dd333d1333333dd3bfffff......
-    ...e311111ddd333dddbffeef.......
-    ....eed1d33d111113befeff........
-    ......eeb333dd13beffff..........
-    ........eeeefffffee.............
-    ................................
-    `, SpriteKind.Player)
+function failed (sprite: string) {
+    scene.setBackgroundColor(15)
+    return "Login failed " + "try again " + name
+}
+let fail = ""
+let success = ""
+let password = ""
+let name = ""
 scene.setBackgroundColor(13)
+game.splash("Welcome!")
 // asks what is your name
-let input2 = game.askForString("What is your name?")
-game.splash("Hello " + input2 + "!")
+name = game.askForString("What is your name?")
+game.splash("Hello " + name + "!")
+while (!(password == "ab" || password == "Leo")) {
+    music.wawawawaa.play()
+}
 // asks for what your password is
-input1 = game.askForString("What is your password?")
-doSomething()
+password = game.askForString("What is your password?")
+// input 1 and arcade equals together
+if (password == "ab" || password == "Leo") {
+    success = succes("Login succesfull " + "Hi, " + name)
+    game.splash(success)
+} else {
+    fail = failed("Login failed " + "try again " + name)
+    game.splash(fail)
+}
