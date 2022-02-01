@@ -1,8 +1,3 @@
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (password != "img" && password != "tennis") {
-        music.playMelody("- - - - - - - - ", 120)
-    }
-})
 function succes (sprite: string) {
     scene.setBackgroundColor(1)
     return "Login succesfull " + "Hi, " + name
@@ -13,22 +8,25 @@ function failed (sprite: string) {
 }
 let fail = ""
 let success = ""
-let password = ""
 let name = ""
 scene.setBackgroundColor(8)
+let login = 0
 game.splash("Welcome!")
 // asks what is your name
 name = game.askForString("What is your name?")
 game.splash("Hello " + name + "!")
 // asks for what your password is
-password = game.askForString("What is your password?")
-timer.debounce(password, 2000, function () {
-    game.splash("Times up")
-    music.wawawawaa.play()
-    game.over(false)
+let password = game.askForString("What is your password?")
+timer.debounce(name, 30000, function () {
+    if (password != "img" && password != "tennis") {
+        game.splash("Times up")
+        music.wawawawaa.play()
+        game.over(false)
+    }
 })
 // input 1 and arcade equals together
-if (true) {
+if (password == "img" || password == "tennis") {
+    login = 1
     success = succes("Login succesfull " + "Hi, " + name)
     game.splash(success)
 } else {
@@ -37,3 +35,8 @@ if (true) {
     // asks for what your password is
     password = game.askForString("What is your password?")
 }
+game.onUpdate(function () {
+    while (login == 0) {
+        music.baDing.play()
+    }
+})
