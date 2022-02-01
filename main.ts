@@ -17,7 +17,7 @@ name = game.askForString("What is your name?")
 game.splash("Hello " + name + "!")
 // asks for what your password is
 let password = game.askForString("What is your password?")
-timer.debounce(name, 30000, function () {
+timer.debounce(name, 20000, function () {
     if (password != "img" && password != "tennis") {
         game.splash("Times up")
         music.wawawawaa.play()
@@ -35,7 +35,7 @@ if (password == "img" || password == "tennis") {
     // asks for what your password is
     password = game.askForString("What is your password?")
 }
-game.onUpdate(function () {
+game.onUpdateInterval(5000, function () {
     while (login == 0) {
         music.baDing.play()
     }
