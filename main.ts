@@ -1,4 +1,4 @@
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     while (password != "img" && password != "tennis") {
         music.playMelody("- - - - - - - - ", 120)
     }
